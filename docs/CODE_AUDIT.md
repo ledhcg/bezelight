@@ -12,7 +12,7 @@ no non-English prose outside `Localizable.strings`, `README.vi.md` and native la
 | `bezelight-hook` could die of SIGPIPE on a closed stdout | `SIGPIPE` ignored, raw `write(2)` |
 | `AgentHookServer` closed the socket fd before its dispatch source was cancelled | `close` moved into the cancel handler |
 | `DeviceManager` wrote frames while the reconnect handshake was running | `handshaking` guard, identity cleared on connect |
-| `OpenCodeStreamClient` line buffer grew without bound on a stream with no newline | line capped at `SSEParser.maxLine`, rest of the line discarded |
+| `OpenCodeStreamClient` line buffer grew without bound on a stream with no newline | line capped at `SSEParser.maxLine`; a whole event capped at `maxEvent` (oversized events are dropped up to their blank line) |
 | Flaky `boundedInputReadsEverythingThenStops` test | writer captures plain fd values |
 
 ## Open: correctness (P2)

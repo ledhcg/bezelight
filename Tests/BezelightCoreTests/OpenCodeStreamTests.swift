@@ -225,3 +225,13 @@ private func makeClient(_ dir: URL, serviceURL: String?, silence: TimeInterval =
     #expect(server.requests.count <= n + 1)
     client.start(); client.stop(); client.stop()                  // idempotent
 }
+
+@Test func anEventMadeOfEndlessSmallLinesIsDroppedNotBuffered() {
+    var parser = SSEParser()
+    let line = Data(("data: " + String(repeating: "x", count: 60_000) + "\n").utf8)
+    var delivered = 0
+    for _ in 0..<200 { delivered += parser.feed(line).count }        // 12 MB with no blank line
+    #expect(delivered == 0)
+    #expect(parser.feed(Data("\n".utf8)).isEmpty)                    // the blank line ends the dropped event
+    #expect(parser.feed(Data("data: ok\n\n".utf8)) == [Data("ok".utf8)])   // and the next one is read normally
+}

@@ -3,11 +3,15 @@ import BezelightAgents
 
 /// Server-Sent Events parser. Feed it lines (or any chunks); it returns each completed event's
 /// `data` payload. Handles `\n` and `\r\n`, comments (`: heartbeat`), multi-line data and a cap on
-/// the size of a single line.
+/// the size of a single line and of a whole event.
 public struct SSEParser: Sendable {
     public static let maxLine = 1_048_576
+    /// Upper bound for one event's accumulated `data:` lines (many small lines must not add up unbounded).
+    public static let maxEvent = 4 * 1_048_576
     private var pending = Data()
     private var data: [Data] = []
+    private var dataBytes = 0
+    private var discardingEvent = false                        // an oversized event is dropped up to its blank line
 
     public init() {}
 
@@ -19,16 +23,21 @@ public struct SSEParser: Sendable {
             pending.removeSubrange(pending.startIndex...nl)
             if line.last == 0x0D { line = line.dropLast() }
             if line.isEmpty {
-                if !data.isEmpty { out.append(Data(data.joined(separator: [0x0A]))); data.removeAll() }
+                if !data.isEmpty { out.append(Data(data.joined(separator: [0x0A]))) }
+                data.removeAll(); dataBytes = 0; discardingEvent = false
+            } else if discardingEvent {
+                continue
             } else if line.first == 0x3A {
                 continue                                         // comment / heartbeat
             } else if line.starts(with: Array("data:".utf8)) {
                 var value = line.dropFirst(5)
                 if value.first == 0x20 { value = value.dropFirst() }
+                dataBytes += value.count
+                if dataBytes > Self.maxEvent { data.removeAll(); dataBytes = 0; discardingEvent = true; continue }
                 data.append(Data(value))
             }                                                     // other fields (event, id, retry) are not needed
         }
-        if pending.count > Self.maxLine { pending.removeAll(); data.removeAll() }
+        if pending.count > Self.maxLine { pending.removeAll(); data.removeAll(); dataBytes = 0 }
         return out
     }
 }
