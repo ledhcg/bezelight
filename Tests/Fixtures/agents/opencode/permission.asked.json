@@ -1,0 +1,24 @@
+{
+  "id": "evt_136b6ee94002HLS8K5NavuM9ka",
+  "created": 1791919320724,
+  "type": "permission.asked",
+  "location": {
+    "directory": "/Users/me/work/app"
+  },
+  "data": {
+    "id": "per_136b6ee940015UD5UPaWH8pdbF",
+    "sessionID": "ses_ec9491f56ffex9TnVTY0kxh7p4",
+    "action": "shell",
+    "resources": [
+      "<redacted>"
+    ],
+    "save": [
+      "<redacted>"
+    ],
+    "source": {
+      "type": "tool",
+      "messageID": "msg_136b6e125001QSYGl8OzZyKf6v",
+      "id": "call_7cb1e4bbc0dc4834a6505b35"
+    }
+  }
+}

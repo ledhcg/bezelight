@@ -1,0 +1,8 @@
+# A provider error (quota) is an error that stays until the user has seen the session.
+{"at":0,"fixture":"opencode/session.created.root"}
+{"at":100,"fixture":"opencode/session.execution.started"}
+{"at":900,"fixture":"opencode/session.execution.failed"}
+{"at":900,"expect":{"display":"error","state":"error"}}
+{"at":30000,"expect":{"display":"error"}}
+{"at":31000,"fixture":"opencode/session.viewed"}
+{"at":31000,"expect":{"display":"none","state":"error"}}

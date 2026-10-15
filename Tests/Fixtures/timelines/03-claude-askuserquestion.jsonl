@@ -1,0 +1,8 @@
+# AskUserQuestion arrives as a PermissionRequest and is answered by PostToolUse.
+{"at":0,"fixture":"claude/UserPromptSubmit"}
+{"at":3000,"fixture":"claude/PermissionRequest.askuserquestion"}
+{"at":3000,"expect":{"display":"needsInput"}}
+{"at":4300,"fixture":"claude/PostToolUse.askuserquestion"}
+{"at":4300,"expect":{"display":"none","state":"working"}}
+{"at":7000,"fixture":"claude/Stop"}
+{"at":7000,"expect":{"display":"done"}}

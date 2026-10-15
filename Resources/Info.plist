@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key><string>en</string>
+    <key>CFBundleExecutable</key><string>Bezelight</string>
+    <key>CFBundleIdentifier</key><string>io.github.ledhcg.bezelight</string>
+    <key>CFBundleName</key><string>Bezelight</string>
+    <key>CFBundleDisplayName</key><string>Bezelight</string>
+    <key>CFBundlePackageType</key><string>APPL</string>
+    <key>CFBundleShortVersionString</key><string>__VERSION__</string>
+    <key>CFBundleVersion</key><string>__BUILD__</string>
+    <key>CFBundleIconFile</key><string>AppIcon</string>
+    <key>CFBundleLocalizations</key>
+    <array><string>en</string><string>vi</string><string>zh-Hans</string><string>ja</string><string>ko</string></array>
+    <key>LSMinimumSystemVersion</key><string>14.0</string>
+    <key>LSApplicationCategoryType</key><string>public.app-category.utilities</string>
+    <key>NSHighResolutionCapable</key><true/>
+    <key>NSSupportsAutomaticTermination</key><false/>
+    <key>NSHumanReadableCopyright</key><string>© Bezelight contributors. MIT License.</string>
+</dict>
+</plist>

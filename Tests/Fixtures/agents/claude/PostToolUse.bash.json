@@ -1,0 +1,20 @@
+{
+  "session_id": "c1fba868-a541-42ab-8008-60a7d82a753d",
+  "transcript_path": "/Users/me/.claude/projects/p/SESSION.jsonl",
+  "cwd": "/Users/me/work/app",
+  "scratchpad_dir": "/tmp/claude/scratchpad",
+  "prompt_id": "1c1e4496-8a3d-42fd-baa6-18e416830b56",
+  "permission_mode": "default",
+  "effort": {
+    "level": "medium"
+  },
+  "hook_event_name": "PostToolUse",
+  "tool_name": "Bash",
+  "tool_input": {
+    "command": "<redacted>",
+    "description": "<redacted>"
+  },
+  "tool_response": "<redacted>",
+  "tool_use_id": "toolu_01Sf2T5QJDACAf43gEL2dh6A",
+  "duration_ms": 1172
+}

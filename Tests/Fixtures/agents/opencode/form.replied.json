@@ -1,0 +1,13 @@
+{
+  "id": "evt_136b83796001xwK0Y6FBH9fh6a",
+  "created": 1791919404950,
+  "type": "form.replied",
+  "location": {
+    "directory": "/Users/me/work/app"
+  },
+  "data": {
+    "id": "frm_136b810330011lcguofgVhaBzM",
+    "sessionID": "ses_ec9491f56ffex9TnVTY0kxh7p4",
+    "answer": "<redacted>"
+  }
+}

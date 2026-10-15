@@ -1,0 +1,21 @@
+{
+  "session_id": "c1fba868-a541-42ab-8008-60a7d82a753d",
+  "transcript_path": "/Users/me/.claude/projects/p/SESSION.jsonl",
+  "cwd": "/Users/me/work/app",
+  "scratchpad_dir": "/tmp/claude/scratchpad",
+  "prompt_id": "b78aa63d-28ed-44dc-9f05-efd58a4e0f33",
+  "permission_mode": "default",
+  "effort": {
+    "level": "medium"
+  },
+  "hook_event_name": "PostToolUse",
+  "tool_name": "Agent",
+  "tool_input": {
+    "description": "<redacted>",
+    "prompt": "<redacted>",
+    "subagent_type": "<redacted>"
+  },
+  "tool_response": "<redacted>",
+  "tool_use_id": "toolu_01WiXBZzAQUvj9Z84yCFwum8",
+  "duration_ms": 20
+}

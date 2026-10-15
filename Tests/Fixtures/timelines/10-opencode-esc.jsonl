@@ -1,0 +1,4 @@
+{"at":0,"fixture":"opencode/session.created.root"}
+{"at":100,"fixture":"opencode/session.execution.started"}
+{"at":8000,"fixture":"opencode/session.execution.interrupted.user"}
+{"at":8000,"expect":{"display":"none","state":"idle"}}

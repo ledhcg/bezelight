@@ -1,0 +1,18 @@
+{
+  "id": "evt_136b8fc0b0015LYB9xUqLPu6eZ",
+  "created": 1791919455243,
+  "type": "session.execution.failed",
+  "data": {
+    "sessionID": "ses_ec9491f56ffex9TnVTY0kxh7p4",
+    "error": {
+      "type": "provider.quota",
+      "message": "<redacted>",
+      "status": 429
+    }
+  },
+  "durable": {
+    "aggregateID": "ses_ec9491f56ffex9TnVTY0kxh7p4",
+    "seq": 100,
+    "version": 1
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "evt_136b72729001BEApoI4rY0cuUC",
+  "created": 1791919335209,
+  "type": "permission.replied",
+  "location": {
+    "directory": "/Users/me/work/app"
+  },
+  "data": {
+    "sessionID": "ses_ec9491f56ffex9TnVTY0kxh7p4",
+    "requestID": "per_136b6ee940015UD5UPaWH8pdbF",
+    "reply": "once"
+  }
+}

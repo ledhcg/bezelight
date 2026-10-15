@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(swift build:*)",
+      "Bash(swift test:*)",
+      "Bash(swift package:*)",
+      "Bash(swift run bezelight-probe:*)",
+      "Bash(scripts/build-app.sh:*)",
+      "Bash(scripts/soak.sh:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(codesign --verify:*)",
+      "Bash(plutil -lint:*)"
+    ],
+    "deny": [
+      "Bash(git push --force:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(rm -rf /:*)",
+      "Read(./.env)",
+      "Read(./.env.*)"
+    ]
+  }
+}

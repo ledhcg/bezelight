@@ -1,0 +1,28 @@
+{
+  "id": "evt_136b6e0e0001xJ6AS1bRpTBtq4",
+  "created": 1791919317217,
+  "type": "session.created",
+  "location": {
+    "directory": "/Users/me/work/app"
+  },
+  "data": {
+    "sessionID": "ses_ec9491f56ffex9TnVTY0kxh7p4",
+    "slug": "swift-sailor",
+    "version": "2.0.28",
+    "projectID": "global",
+    "location": {
+      "directory": "/Users/me/work/app"
+    },
+    "subpath": "",
+    "agent": "build",
+    "model": {
+      "id": "longcat-2.5-preview-free",
+      "providerID": "opencode"
+    }
+  },
+  "durable": {
+    "aggregateID": "ses_ec9491f56ffex9TnVTY0kxh7p4",
+    "seq": 0,
+    "version": 1
+  }
+}

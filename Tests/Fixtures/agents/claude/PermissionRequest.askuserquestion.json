@@ -1,0 +1,16 @@
+{
+  "session_id": "c1fba868-a541-42ab-8008-60a7d82a753d",
+  "transcript_path": "/Users/me/.claude/projects/p/SESSION.jsonl",
+  "cwd": "/Users/me/work/app",
+  "scratchpad_dir": "/tmp/claude/scratchpad",
+  "prompt_id": "8a97a532-3dba-4c7d-91b3-5822c27e84b3",
+  "permission_mode": "default",
+  "effort": {
+    "level": "medium"
+  },
+  "hook_event_name": "PermissionRequest",
+  "tool_name": "AskUserQuestion",
+  "tool_input": {
+    "questions": "<redacted>"
+  }
+}

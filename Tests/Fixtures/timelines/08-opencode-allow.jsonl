@@ -1,0 +1,10 @@
+{"at":0,"fixture":"opencode/session.created.root"}
+{"at":100,"fixture":"opencode/session.execution.started"}
+{"at":3600,"fixture":"opencode/permission.asked"}
+{"at":3600,"expect":{"display":"needsInput","state":"needsInput"}}
+{"at":17000,"fixture":"opencode/permission.replied.once"}
+{"at":17000,"expect":{"display":"none","state":"working"}}
+{"at":23000,"fixture":"opencode/session.execution.succeeded"}
+{"at":23000,"expect":{"display":"done","state":"done"}}
+{"at":26000,"fixture":"opencode/session.viewed"}
+{"at":26000,"expect":{"display":"none"}}
