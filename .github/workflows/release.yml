@@ -54,7 +54,7 @@ jobs:
           rm dist/notarize.zip
       - name: Package
         run: ditto -c -k --keepParent dist/Bezelight.app "dist/Bezelight-${GITHUB_REF_NAME}.zip"
-      - uses: softprops/action-gh-release@v2
+      - uses: softprops/action-gh-release@v3
         with:
           files: dist/Bezelight-*.zip
           generate_release_notes: true
