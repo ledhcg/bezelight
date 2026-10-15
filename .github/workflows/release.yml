@@ -19,7 +19,7 @@ jobs:
       HAS_CERT: ${{ secrets.DEVELOPER_ID_CERT_P12 != '' }}
       CAN_NOTARISE: ${{ secrets.NOTARY_APPLE_ID != '' && secrets.DEVELOPER_ID_NAME != '' }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Import the signing certificate
         if: env.HAS_CERT == 'true'
         env:
