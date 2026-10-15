@@ -1,0 +1,9 @@
+# Rejecting a permission ends with "interrupted (shutdown)", which is not an error.
+{"at":0,"fixture":"opencode/session.created.root"}
+{"at":100,"fixture":"opencode/session.execution.started"}
+{"at":3000,"sse":{"type":"permission.asked","data":{"id":"per_136b75aed001i5SeT0MjQStSgA","sessionID":"ses_ec9491f56ffex9TnVTY0kxh7p4"}}}
+{"at":3000,"expect":{"display":"needsInput"}}
+{"at":5000,"fixture":"opencode/permission.replied.reject"}
+{"at":5000,"expect":{"display":"none","state":"working"}}
+{"at":5100,"fixture":"opencode/session.execution.interrupted.shutdown"}
+{"at":5100,"expect":{"display":"none","state":"idle"}}

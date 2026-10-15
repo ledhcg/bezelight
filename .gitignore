@@ -1,0 +1,10 @@
+.build/
+.swiftpm/
+dist/
+*.xcodeproj
+xcuserdata/
+.DS_Store
+*.app
+*.icns
+.claude/settings.local.json
+CLAUDE.local.md

@@ -1,0 +1,16 @@
+{
+  "session_id": "c1fba868-a541-42ab-8008-60a7d82a753d",
+  "transcript_path": "/Users/me/.claude/projects/p/SESSION.jsonl",
+  "cwd": "/Users/me/work/app",
+  "scratchpad_dir": "/tmp/claude/scratchpad",
+  "prompt_id": "1c1e4496-8a3d-42fd-baa6-18e416830b56",
+  "permission_mode": "default",
+  "effort": {
+    "level": "medium"
+  },
+  "hook_event_name": "Stop",
+  "stop_hook_active": false,
+  "last_assistant_message": "<redacted>",
+  "background_tasks": "<redacted>",
+  "session_crons": "<redacted>"
+}

@@ -1,0 +1,11 @@
+# Refusing a command makes Claude emit no hook at all. The transcript watcher reports the answer.
+{"at":0,"fixture":"claude/SessionStart"}
+{"at":1000,"fixture":"claude/UserPromptSubmit"}
+{"at":3000,"fixture":"claude/PermissionRequest.bash"}
+{"at":6000,"expect":{"display":"needsInput","state":"needsInput"}}
+{"at":7300,"event":{"agent":"claude","kind":"answered","session":"c1fba868-a541-42ab-8008-60a7d82a753d","src":"transcript"}}
+{"at":7300,"expect":{"display":"none","state":"working"}}
+{"at":30000,"expect":{"state":"working"}}
+{"at":53000,"expect":{"display":"none","state":"idle"}}
+{"at":60000,"fixture":"claude/UserPromptSubmit"}
+{"at":60000,"expect":{"state":"working"}}

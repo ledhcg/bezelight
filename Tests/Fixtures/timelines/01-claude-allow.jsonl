@@ -1,0 +1,14 @@
+# Allow a command: ask lasts until the tool runs; done stays until the user is back.
+{"at":0,"fixture":"claude/SessionStart"}
+{"at":1000,"fixture":"claude/UserPromptSubmit"}
+{"at":1000,"expect":{"display":"none","state":"working"}}
+{"at":4000,"fixture":"claude/PermissionRequest.bash"}
+{"at":4000,"expect":{"display":"needsInput","state":"needsInput"}}
+{"at":9000,"expect":{"display":"needsInput"}}
+{"at":11000,"fixture":"claude/PostToolUse.bash"}
+{"at":11000,"expect":{"display":"none","state":"working"}}
+{"at":15000,"fixture":"claude/Stop"}
+{"at":15000,"expect":{"display":"done","state":"done"}}
+{"at":18000,"expect":{"display":"done"}}
+{"at":20000,"input":true}
+{"at":21000,"expect":{"display":"none","state":"done"}}

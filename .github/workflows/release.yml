@@ -1,0 +1,60 @@
+name: Release
+# Builds a universal app when a version tag is pushed. If the Developer ID secrets below exist, the
+# app is signed with them and notarised; otherwise an ad-hoc signed build is attached (it runs on
+# the Mac that built it and on others after right-click > Open).
+#
+# Secrets (all optional): DEVELOPER_ID_CERT_P12 (base64), DEVELOPER_ID_CERT_PASSWORD,
+# DEVELOPER_ID_NAME ("Developer ID Application: Name (TEAMID)"), NOTARY_APPLE_ID,
+# NOTARY_TEAM_ID, NOTARY_PASSWORD (an app-specific password).
+on:
+  push:
+    tags: ["v*"]
+jobs:
+  release:
+    runs-on: macos-15
+    permissions:
+      contents: write
+    env:
+      # `secrets` cannot be used in an `if:` directly, so the checks go through job-level variables.
+      HAS_CERT: ${{ secrets.DEVELOPER_ID_CERT_P12 != '' }}
+      CAN_NOTARISE: ${{ secrets.NOTARY_APPLE_ID != '' && secrets.DEVELOPER_ID_NAME != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Import the signing certificate
+        if: env.HAS_CERT == 'true'
+        env:
+          CERT: ${{ secrets.DEVELOPER_ID_CERT_P12 }}
+          PASS: ${{ secrets.DEVELOPER_ID_CERT_PASSWORD }}
+        run: |
+          KEYCHAIN="$RUNNER_TEMP/build.keychain"
+          echo "$CERT" | base64 --decode > "$RUNNER_TEMP/cert.p12"
+          security create-keychain -p "$PASS" "$KEYCHAIN"
+          security set-keychain-settings -lut 3600 "$KEYCHAIN"
+          security unlock-keychain -p "$PASS" "$KEYCHAIN"
+          security import "$RUNNER_TEMP/cert.p12" -k "$KEYCHAIN" -P "$PASS" -T /usr/bin/codesign
+          security set-key-partition-list -S apple-tool:,apple: -s -k "$PASS" "$KEYCHAIN"
+          security list-keychains -d user -s "$KEYCHAIN" login.keychain
+      - name: Build
+        env:
+          CODESIGN_IDENTITY: ${{ secrets.DEVELOPER_ID_NAME || '-' }}
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}" BUILD="${GITHUB_RUN_NUMBER}" scripts/build-app.sh
+      - name: Test
+        run: swift test --no-parallel
+      - name: Notarise
+        if: env.CAN_NOTARISE == 'true'
+        env:
+          APPLE_ID: ${{ secrets.NOTARY_APPLE_ID }}
+          TEAM_ID: ${{ secrets.NOTARY_TEAM_ID }}
+          PASSWORD: ${{ secrets.NOTARY_PASSWORD }}
+        run: |
+          ditto -c -k --keepParent dist/Bezelight.app dist/notarize.zip
+          xcrun notarytool submit dist/notarize.zip --apple-id "$APPLE_ID" --team-id "$TEAM_ID" --password "$PASSWORD" --wait
+          xcrun stapler staple dist/Bezelight.app
+          rm dist/notarize.zip
+      - name: Package
+        run: ditto -c -k --keepParent dist/Bezelight.app "dist/Bezelight-${GITHUB_REF_NAME}.zip"
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: dist/Bezelight-*.zip
+          generate_release_notes: true

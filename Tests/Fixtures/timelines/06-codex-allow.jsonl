@@ -1,0 +1,8 @@
+{"at":0,"fixture":"codex/SessionStart"}
+{"at":0,"fixture":"codex/UserPromptSubmit"}
+{"at":4100,"fixture":"codex/PermissionRequest.bash"}
+{"at":4100,"expect":{"display":"needsInput"}}
+{"at":14100,"fixture":"codex/PostToolUse.bash"}
+{"at":14100,"expect":{"display":"none","state":"working"}}
+{"at":16400,"fixture":"codex/Stop"}
+{"at":16400,"expect":{"display":"done","state":"done"}}

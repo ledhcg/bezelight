@@ -1,0 +1,17 @@
+# A child session asks for permission on behalf of its parent; a child ending is not "done".
+{"at":0,"fixture":"opencode/session.created.root"}
+{"at":100,"fixture":"opencode/session.execution.started"}
+{"at":1000,"fixture":"opencode/session.created.child"}
+{"at":1000,"expect":{"sessions":1,"state":"working"}}
+{"at":2000,"sse":{"type":"permission.asked","data":{"id":"per_child1","sessionID":"ses_ec94789adffeMigXP3HDlrxao3"}}}
+{"at":2000,"expect":{"display":"needsInput","state":"needsInput"}}
+{"at":3000,"sse":{"type":"permission.replied","data":{"sessionID":"ses_ec94789adffeMigXP3HDlrxao3","requestID":"per_child1","reply":"once"}}}
+{"at":3000,"expect":{"display":"none","state":"working"}}
+{"at":4000,"sse":{"type":"session.execution.succeeded","data":{"sessionID":"ses_ec94789adffeMigXP3HDlrxao3"}}}
+{"at":4000,"expect":{"display":"none","state":"working"}}
+{"at":5000,"fixture":"opencode/form.created"}
+{"at":5000,"expect":{"display":"needsInput"}}
+{"at":6000,"fixture":"opencode/form.replied"}
+{"at":6000,"expect":{"display":"none","state":"working"}}
+{"at":7000,"fixture":"opencode/session.execution.succeeded"}
+{"at":7000,"expect":{"display":"done","state":"done"}}

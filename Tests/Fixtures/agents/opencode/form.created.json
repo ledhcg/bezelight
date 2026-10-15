@@ -1,0 +1,43 @@
+{
+  "id": "evt_136b81033002uMt7vdOIP3KLp9",
+  "created": 1791919394867,
+  "type": "form.created",
+  "location": {
+    "directory": "/Users/me/work/app"
+  },
+  "data": {
+    "form": {
+      "id": "frm_136b810330011lcguofgVhaBzM",
+      "sessionID": "ses_ec9491f56ffex9TnVTY0kxh7p4",
+      "title": "<redacted>",
+      "metadata": {
+        "kind": "question",
+        "tool": {
+          "messageID": "msg_136b7fc1f001UaEUWGB1SPKkb5",
+          "id": "call_ef3e09044f364c2c89b34c7b"
+        }
+      },
+      "fields": [
+        {
+          "key": "q0",
+          "title": "<redacted>",
+          "description": "<redacted>",
+          "type": "string",
+          "options": [
+            {
+              "value": "A",
+              "label": "A",
+              "description": "<redacted>"
+            },
+            {
+              "value": "B",
+              "label": "B",
+              "description": "<redacted>"
+            }
+          ],
+          "custom": true
+        }
+      ]
+    }
+  }
+}

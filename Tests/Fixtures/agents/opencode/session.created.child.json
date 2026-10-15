@@ -1,0 +1,31 @@
+{
+  "id": "evt_136b87679001juu8cPLAZzDOqG",
+  "created": 1791919421049,
+  "type": "session.created",
+  "location": {
+    "directory": "/Users/me/work/app"
+  },
+  "data": {
+    "sessionID": "ses_ec94789adffeMigXP3HDlrxao3",
+    "slug": "cosmic-nebula",
+    "version": "2.0.28",
+    "projectID": "global",
+    "parentID": "ses_ec9491f56ffex9TnVTY0kxh7p4",
+    "location": {
+      "directory": "/Users/me/work/app"
+    },
+    "subpath": "",
+    "title": "<redacted>",
+    "agent": "general",
+    "model": {
+      "id": "longcat-2.5-preview-free",
+      "providerID": "opencode",
+      "variant": "default"
+    }
+  },
+  "durable": {
+    "aggregateID": "ses_ec94789adffeMigXP3HDlrxao3",
+    "seq": 0,
+    "version": 1
+  }
+}

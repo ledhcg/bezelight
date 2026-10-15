@@ -1,0 +1,10 @@
+{
+  "session_id": "c1fba868-a541-42ab-8008-60a7d82a753d",
+  "transcript_path": "/Users/me/.claude/projects/p/SESSION.jsonl",
+  "cwd": "/Users/me/work/app",
+  "scratchpad_dir": "/tmp/claude/scratchpad",
+  "prompt_id": "b78aa63d-28ed-44dc-9f05-efd58a4e0f33",
+  "agent_id": "ad828c66f3500209c",
+  "agent_type": "vietnamese-helper",
+  "hook_event_name": "SubagentStart"
+}

@@ -1,0 +1,11 @@
+# Stop fires for the main turn while a background subagent still runs; the subagent then asks.
+{"at":0,"fixture":"claude/UserPromptSubmit"}
+{"at":1000,"fixture":"claude/PostToolUse.agent"}
+{"at":1000,"fixture":"claude/SubagentStart.subagent"}
+{"at":3200,"fixture":"claude/Stop"}
+{"at":3200,"expect":{"display":"none","state":"working"}}
+{"at":4000,"fixture":"claude/PermissionRequest.bash.subagent"}
+{"at":4000,"expect":{"display":"needsInput","state":"needsInput"}}
+{"at":12000,"expect":{"display":"needsInput"}}
+{"at":16000,"fixture":"claude/SubagentStop.subagent"}
+{"at":16000,"expect":{"display":"done","state":"done"}}

@@ -1,0 +1,37 @@
+name: CI
+on:
+  push: { branches: [main] }
+  pull_request:
+jobs:
+  build-test:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: swift build -c release
+      - name: Test
+        # Includes the fuzz tests and a short soak test; scripts/soak.sh runs the soak for longer.
+        # Serial on purpose: several tests are wall-clock based and starve on a 3-core runner when run in parallel.
+        run: swift test --no-parallel
+      - name: Package
+        run: ARCHS="arm64" scripts/build-app.sh
+      - name: Hook helper speed
+        # Informational: the design target is a median of 15 ms or less (about 5 ms on an M2).
+        run: |
+          HELPER=dist/Bezelight.app/Contents/Helpers/bezelight-hook
+          export BEZELIGHT_HOME="$(mktemp -d)"
+          python3 - "$HELPER" <<'PY'
+          import subprocess, sys, time, statistics
+          helper = sys.argv[1]
+          payload = b'{"session_id":"ci","hook_event_name":"PostToolUse","cwd":"/tmp"}'
+          times = []
+          for _ in range(100):
+              t = time.perf_counter()
+              r = subprocess.run([helper, "claude"], input=payload, capture_output=True)
+              times.append((time.perf_counter() - t) * 1000)
+              assert r.returncode == 0 and r.stdout == b"{}\n" and r.stderr == b""
+          times.sort()
+          print(f"hook helper: median {statistics.median(times):.1f} ms, p99 {times[98]:.1f} ms")
+          PY
+      - uses: actions/upload-artifact@v4
+        with: { name: Bezelight-app, path: dist/Bezelight.app }

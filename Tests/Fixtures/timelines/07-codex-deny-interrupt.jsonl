@@ -1,0 +1,6 @@
+# Refusing, or pressing Esc, produces only Interrupt: no Stop, no PostToolUse.
+{"at":0,"fixture":"codex/UserPromptSubmit"}
+{"at":3000,"fixture":"codex/PermissionRequest.bash"}
+{"at":3000,"expect":{"display":"needsInput"}}
+{"at":8000,"fixture":"codex/Interrupt"}
+{"at":8000,"expect":{"display":"none","state":"idle"}}

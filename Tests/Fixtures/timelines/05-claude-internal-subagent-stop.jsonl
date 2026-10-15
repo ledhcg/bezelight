@@ -1,0 +1,6 @@
+# A SubagentStop for an id that never started is one of Claude's internal helpers: ignored.
+{"at":0,"fixture":"claude/UserPromptSubmit"}
+{"at":1000,"fixture":"claude/SubagentStop.subagent.internal"}
+{"at":1000,"expect":{"state":"working"}}
+{"at":2000,"fixture":"claude/Stop"}
+{"at":2000,"expect":{"display":"done","state":"done"}}

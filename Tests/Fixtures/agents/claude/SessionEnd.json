@@ -1,0 +1,9 @@
+{
+  "session_id": "c1fba868-a541-42ab-8008-60a7d82a753d",
+  "transcript_path": "/Users/me/.claude/projects/p/SESSION.jsonl",
+  "cwd": "/Users/me/work/app",
+  "scratchpad_dir": "/tmp/claude/scratchpad",
+  "prompt_id": "de21072b-4dc7-4669-84b3-fa396aa438ba",
+  "hook_event_name": "SessionEnd",
+  "reason": "prompt_input_exit"
+}
